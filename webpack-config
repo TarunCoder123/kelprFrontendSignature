@@ -1,0 +1,24 @@
+// webpack.config.js
+const webpack = require('webpack');
+
+module.exports = {
+  resolve: {
+    fallback: {
+      buffer: require.resolve('buffer/'),
+      events: require.resolve('events/'),
+      stream: require.resolve('stream-browserify'),
+      util: require.resolve('util/'),
+      assert: require.resolve('assert/'),
+      crypto: require.resolve('crypto-browserify'),
+      path: require.resolve('path-browserify'),
+      process: require.resolve('process/browser'),
+    },
+  },
+  plugins: [
+    // Automatically inject Buffer and process in global scope
+    new webpack.ProvidePlugin({
+      Buffer: ['buffer', 'Buffer'],
+      process: 'process/browser',
+    }),
+  ],
+};
