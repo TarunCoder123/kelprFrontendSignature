@@ -96,6 +96,7 @@ const KeplrSignComponent = () => {
   const handleSign = async () => {
     try {
       setLoading(true);
+      
   
       const message = walletAddress; // OR use any unique string, like a nonce
       console.log("🚀 Signing message:", message);
